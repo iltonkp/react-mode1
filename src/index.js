@@ -13,28 +13,23 @@ class Button extends Component {
   };
 
   render() {
-    return (
-      <a href="" onClick={this.props.onClick} style={{ background: "#f00" }}>
-        {this.props.children}
-      </a>
-    );
+    return <button onClick={this.props.onClick}>{this.props.children}</button>;
   }
 }
 
 class App extends Component {
-  handleClick() {
-    alert("Botão Clicado");
-  }
+  state = {
+    counter: 0
+  };
 
+  handleClick = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  };
   render() {
     return (
       <Fragment>
         <h1>Hello Ilton</h1>
-        <Button
-          onClick={() => {
-            alert("Botão 1");
-          }}
-        />
+        <h2>{this.state.counter}</h2>
         <Button onClick={this.handleClick}>Enviar</Button>
       </Fragment>
     );
